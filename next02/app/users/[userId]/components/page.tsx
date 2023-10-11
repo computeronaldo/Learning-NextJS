@@ -14,7 +14,7 @@ const UserPosts = async ({ promise }: Props) => {
     );
   });
 
-  return content;
+  return <>{content}</>;
 };
 
 export default UserPosts;
