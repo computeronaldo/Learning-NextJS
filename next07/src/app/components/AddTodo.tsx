@@ -15,6 +15,8 @@ const AddTodo = () => {
   const [isFetching, setIsFetching] = useState(false);
   const [data, setData] = useState(initState);
 
+  const isMutating = isPending || isFetching;
+
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -67,7 +69,11 @@ const AddTodo = () => {
   };
 
   const content = (
-    <form onSubmit={handleSubmit} className="flex gap-2 items-center">
+    <form
+      onSubmit={handleSubmit}
+      className="flex gap-2 items-center"
+      style={{ opacity: !isMutating ? 1 : 0.7 }}
+    >
       <input
         type="text"
         id="title"
