@@ -10,7 +10,6 @@ export const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const path = req.query.path as string;
 
   await res.revalidate(path);
-
   return res.json({ revalidated: true });
 };
 
